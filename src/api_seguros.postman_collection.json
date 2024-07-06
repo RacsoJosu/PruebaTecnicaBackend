@@ -1,0 +1,40 @@
+{
+	"info": {
+		"_postman_id": "14ba0066-3845-4194-b94e-0a1239cd5e6a",
+		"name": "api_seguros",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26048004"
+	},
+	"item": [
+		{
+			"name": "Comparador_Y_Cotizacion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"age\":40,\r\n    \"gender\":\"F\",\r\n    \"sumAssured\":300000 ,\r\n    \"smoker\":false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/comparator_service",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"comparator_service"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
