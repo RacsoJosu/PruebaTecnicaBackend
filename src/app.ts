@@ -1,17 +1,11 @@
 import express, { Application } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-const sequelize = require('./database/sequelize');
-
+import morgan from 'morgan'
 
 import { ApiError, errorLog } from '../helpers';
-
-import routerApi from '../api/index';
-
-import { createServer } from 'http';
+import routerApiV1 from './v1';
 import { errorHandler } from '../helpers/errorHandler';
-
-const morgan = require('morgan');
 
 
 
@@ -20,6 +14,7 @@ try {
 
   //For env File
   dotenv.config();
+  const port = process.env.PORT || 3000;
 
   const app: Application = express();
 
@@ -28,9 +23,8 @@ try {
   app.use(express.json());
 
   // Puerto de la app
-  const port = process.env.PORT || 3000;
 
-  routerApi(app);
+  routerApiV1(app);
 
   app.use(errorHandler);
 
