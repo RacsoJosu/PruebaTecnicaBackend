@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { z } from 'zod';
-import { ApiError, ApiResponse } from '../../../helpers';
+import { ApiError} from '../../../helpers';
 import jsonData from '../../../tasas/vidaInsure.json';
 import InsureData from '../interfaces/InSureData';
 import { validateBodyRequestSchema } from '../helpers/schemas';
