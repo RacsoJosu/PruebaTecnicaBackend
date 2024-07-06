@@ -1,14 +1,13 @@
 import { z } from 'zod';
 
-const RateTypes = z.enum([
-  'hombreFumador',
-  'hombreNoFumador',
-  'mujerNoFumadora',
-  'mujerFumadora',
+const Gender = z.enum([
+  'F',
+  'M'
 ]);
 
 export const validateBodyRequestSchema = z.object({
   age: z.number().int(),
-  typeRate: RateTypes,
-  mountInsure: z.number()
+  gender: Gender,
+  mountInsure: z.number(),
+  smoker: z.boolean()
 });

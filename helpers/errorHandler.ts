@@ -1,6 +1,6 @@
 import { ErrorRequestHandler } from 'express';
 import { ZodError } from 'zod';
-import { ApiError, ApiResponse } from './statusCodes';
+import { ApiError } from './statusCodes';
 import { errorLog } from './loggers';
 
 import env from './env';
@@ -10,7 +10,7 @@ export const errorHandler: ErrorRequestHandler = (err, req, res, _next) => {
     const response = new ApiError({
       statusCode: 400,
       message: 'Body invalido',
-      title: "Bad Request",
+      title: 'Bad Request',
       success: false,
       data: err.format(),
     });
@@ -29,7 +29,7 @@ export const errorHandler: ErrorRequestHandler = (err, req, res, _next) => {
   if (env.NODE_ENV === 'production') {
     const response = new ApiError({
       statusCode: 500,
-      title: "Error de Servidor",
+      title: 'Error de Servidor',
       message: `Ha ocurrido un error en el endpoint ${req.method} ${req.url}`,
     });
     return res.status(response.statusCode).json(response.getResponse());
@@ -39,7 +39,7 @@ export const errorHandler: ErrorRequestHandler = (err, req, res, _next) => {
 
   const response = new ApiError({
     statusCode: 500,
-    title: "Error de Servidor",
+    title: 'Error de Servidor',
     message: err.message,
   });
 
